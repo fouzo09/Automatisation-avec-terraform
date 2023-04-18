@@ -1,6 +1,6 @@
 
 resource "aws_security_group" "WebServerSG" {
-  name        = "WebServerSG"
+  name        = var.SG_NAME
   description = "Manage traffic"
 
   ingress {
@@ -10,7 +10,6 @@ resource "aws_security_group" "WebServerSG" {
     protocol         = "tcp"
      cidr_blocks = ["0.0.0.0/0"]
   }
-
   ingress {
     description      = "Allow HTTPS Access"
     from_port        = 443
@@ -33,7 +32,6 @@ resource "aws_security_group" "WebServerSG" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
-
   tags = {
     Name = "WebServerSG"
   }
@@ -42,8 +40,8 @@ resource "aws_security_group" "WebServerSG" {
 
 
 resource "aws_instance" "WebServer" {
-    ami = "ami-007855ac798b5175e"
-    instance_type = "t2.micro"
+    ami = var.INSTANCE_AMI
+    instance_type = var.INSTANCE_TYPE
     user_data = var.WEBSERVER_INSTANCE_USER_DATA
     vpc_security_group_ids = [aws_security_group.WebServerSG.id]
     tags = {

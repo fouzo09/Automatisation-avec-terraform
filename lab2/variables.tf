@@ -17,8 +17,3 @@ variable "INSTANCE_TYPE" {
   type = string
   default = "t2.micro"
 }
-
-variable "SECURITY_GROUP_NAME" {
-  type = string
-  default = "terraform_sg"
-}
