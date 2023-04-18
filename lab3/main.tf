@@ -1,3 +1,4 @@
+// REMOTE EXEC ET LOCAL EXEC
 
 provider "aws" {
   region     = var.AWS_REGION
@@ -67,19 +68,3 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_eip" "myip" {
-    vpc = true
-}
-
-resource "aws_eip_association" "eip_assoc" {
-  instance_id   = aws_instance.web.id
-  allocation_id = aws_eip.myip.id
-}
-
-terraform {
-  backend "s3" {
-    bucket = "fouzterraformlab"
-    key    = "states/terraform.state"
-    region = "us-east-1"
-  }
-}

@@ -1,3 +1,5 @@
+//INSTALL DOCKER ON EC2 INSTANCE UNSING REMOTE EXEC
+
 provider "aws" {
     access_key = "AKIAY44W4NNGOZZYSRFQ"
     secret_key = "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"
