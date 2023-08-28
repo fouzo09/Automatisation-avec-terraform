@@ -1,4 +1,4 @@
 /lab9/.terraform
-/lab9/terraform.lock.hcl
-/lab9/terraform.tfstate.lock.info
+/lab9/.terraform.lock.hcl
+/lab9/.terraform.tfstate.lock.info
 /lab9/terraform.tfstate
